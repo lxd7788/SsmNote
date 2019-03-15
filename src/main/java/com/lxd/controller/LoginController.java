@@ -99,18 +99,20 @@ public class LoginController {
 	}
 	@RequestMapping("/put")
 	@ResponseBody
-	public String put(HttpServletRequest request) throws IOException{
+	public String put(HttpServletRequest request,@RequestParam("file") MultipartFile f) throws IOException{
 		MultipartHttpServletRequest mu=(MultipartHttpServletRequest)request;
-		
+		String realPath = request.getSession().getServletContext().getRealPath("/");
 		Iterator<String> fileNames = mu.getFileNames();
 		while(fileNames.hasNext()){
 			MultipartFile file = mu.getFile(fileNames.next());
 			String name = file.getName();
 			InputStream inputStream = file.getInputStream();
-			file.transferTo(new File("/home/sdzw/up/tttt.jpg"));
-			System.out.println(name);
+			file.transferTo(new File(realPath+"/img/tttt.jpg"));
+			//获取项目根目录
+		
+			System.out.println(name+realPath);
 		}
-
+		
 		return "scu";
 		
 	}
