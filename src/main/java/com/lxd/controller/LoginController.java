@@ -1,6 +1,10 @@
 package com.lxd.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +14,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONArray;
@@ -66,7 +73,7 @@ public class LoginController {
 		list.add(u);
 		list.add(uu);
 		mp.addAttribute("key", list);
-		return new ModelAndView("per");	
+		return new ModelAndView("login");	
 	}
 	
 	@RequestMapping("/data")
@@ -88,6 +95,23 @@ public class LoginController {
 		obj.put("msg", "");
 		System.out.println("shoudao................");
 		return obj.toString();
+		
+	}
+	@RequestMapping("/put")
+	@ResponseBody
+	public String put(HttpServletRequest request) throws IOException{
+		MultipartHttpServletRequest mu=(MultipartHttpServletRequest)request;
+		
+		Iterator<String> fileNames = mu.getFileNames();
+		while(fileNames.hasNext()){
+			MultipartFile file = mu.getFile(fileNames.next());
+			String name = file.getName();
+			InputStream inputStream = file.getInputStream();
+			file.transferTo(new File("/home/sdzw/up/tttt.jpg"));
+			System.out.println(name);
+		}
+
+		return "scu";
 		
 	}
 }

@@ -3,6 +3,9 @@
     <%
     	Object obj=session.getAttribute("user");
     %>
+        <%
+    	String path=(String) request.getContextPath();
+    %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,8 +28,11 @@ success<br>
 </c:forEach>
 <br>
 <img id="imgf" src="">
+<input id="file" type="file" name="filesssssssss"><button onclick="put()">上传</button>
 </body>
+<script type="text/javascript" src="<%=path %>/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
+
 window.onload=function(){
 document.getElementById("img").src='img/h2.jpg'
 	
@@ -34,6 +40,23 @@ var mm='<%=obj%>';
 alert(mm);
 
 }
+function put(){
+	alert(111)
+	var formData = new FormData();
+   formData.append("file", document.getElementById("file").files[0]);  
+	$.ajax({
+		type:'POST',
+		url:'<%=path %>/put.do',
+		data: formData,
+        contentType: false,
+        processData: false,
+        		dataTYpe:'TXT',
+        		success:function(data){
+        			alert(data)
+        		}
+	})
+}
+
 function get(img){
 	alert(img.name)
 }
