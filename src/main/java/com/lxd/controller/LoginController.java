@@ -39,7 +39,7 @@ public class LoginController {
 		list.add(u);
 		list.add(uu);
 		mp.addAttribute("key", list);
-		return new ModelAndView("login");	
+		return new ModelAndView("per");	
 	}
 	
 }

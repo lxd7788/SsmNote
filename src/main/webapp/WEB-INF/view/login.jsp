@@ -11,8 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="per.jsp">111111111111</a>
 success<br>
-<span>获取modelmap</span>
+<span onclick="test()">获取modelmap</span>
 <br>
 <%-- <span>${key.name }</span> --%>
 <c:forEach items="${key}" var="list" > 
@@ -35,6 +36,19 @@ alert(mm);
 }
 function get(img){
 	alert(img.name)
+}
+
+function test(){
+	if(session){
+		alert(11)
+	}else{
+		alert(2)
+	}
+}
+
+
+function session(){
+	return true;
 }
 </script>
 </html>
