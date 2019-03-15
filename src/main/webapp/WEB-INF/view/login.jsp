@@ -3,6 +3,7 @@
     <%
     	Object obj=session.getAttribute("user");
     %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,9 +13,17 @@
 <body>
 success<br>
 <span>获取modelmap</span>
-<span>${key }</span>
 <br>
-<img id="img" src="">
+<%-- <span>${key.name }</span> --%>
+<c:forEach items="${key}" var="list" > 
+<div>
+<span>${list.name }</span><span>${list.age }</span><img class="imgf" src=${list.img } style="withd:50px;height:50px;">
+<br>
+<input type="button" name=${list.age } onclick="get(this)">get</span>
+</div> 
+</c:forEach>
+<br>
+<img id="imgf" src="">
 </body>
 <script type="text/javascript">
 window.onload=function(){
@@ -24,6 +33,8 @@ var mm='<%=obj%>';
 alert(mm);
 
 }
-
+function get(img){
+	alert(img.name)
+}
 </script>
 </html>

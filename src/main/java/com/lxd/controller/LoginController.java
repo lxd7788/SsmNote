@@ -1,5 +1,8 @@
 package com.lxd.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,11 +26,19 @@ public class LoginController {
 		System.out.println("------------------"+object.toString());
 		//存session
 		Uu uu=new Uu();
-		uu.setAge("sadsaf");
-		uu.setName("sadasda");
+		uu.setAge("001");
+		uu.setName("sasa");
+		uu.setImg("img/h1.jpg");
 		request.getSession().setAttribute("user", uu);
 		//modelmap使用
-		mp.addAttribute("key", "value");
+		Uu u=new Uu();
+		u.setAge("002");
+		u.setName("wawa");
+		u.setImg("img/h2.jpg");
+		List<Uu> list=new ArrayList<Uu>();
+		list.add(u);
+		list.add(uu);
+		mp.addAttribute("key", list);
 		return new ModelAndView("login");	
 	}
 	
