@@ -25,7 +25,9 @@
 <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px" data-ad-client="ca-pub-6111334333458862" data-ad-slot="3820120620"></ins>
  
 </div>
- 
+ <div style="height:100px;display:block">
+ 		<iframe  src="<%=path%>/login.do" style="width:100%;height:100%"> 22</iframe>
+ </div>
 <div class="layui-btn-group demoTable">
   <button class="layui-btn" data-type="getCheckData">获取选中行数据</button>
   <button class="layui-btn" data-type="getCheckLength">获取选中数目</button>
