@@ -20,7 +20,7 @@
 	<context:component-scan base-package="com.lxd.utils" />
 	<!-- 引入配置文件 -->
 	<context:property-placeholder
-		ignore-unresolvable="true" location="classpath:jdbc.properties" />      
+		ignore-unresolvable="true" location="classpath*:jdbc.properties" />      
     <!-- 配置基础数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${jdbc.driver}" />
@@ -42,7 +42,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描mapping.xml文件 -->
-		<property name="mapperLocations" value="classpath:com/lxd/mapper/*.xml" />
+		<property name="mapperLocations" value="classpath*:com/lxd/mapper/*.xml" />
 	</bean>
 	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
