@@ -25,4 +25,5 @@ public class LoginController {
 		request.getSession().setAttribute("user", uu);
 		return new ModelAndView("login");	
 	}
+	
 }
