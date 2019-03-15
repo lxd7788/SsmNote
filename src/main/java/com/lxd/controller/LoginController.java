@@ -10,8 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.lxd.model.Uu;
 import com.lxd.utils.EhcacheUtil;
 
@@ -42,4 +45,25 @@ public class LoginController {
 		return new ModelAndView("per");	
 	}
 	
+	@RequestMapping("/data")
+	@ResponseBody
+	public String add(){
+		
+		JSONArray arr=new JSONArray();
+		JSONObject obj=new JSONObject();
+		JSONObject o=new JSONObject();
+		Uu u=new Uu();
+		u.setAge("002");
+		u.setName("wawa");
+		u.setImg("img/h2.jpg");
+		
+	
+		arr.add(u);
+		obj.put("data", arr);
+		obj.put("code", 0);
+		obj.put("msg", "");
+		System.out.println("shoudao................");
+		return obj.toString();
+		
+	}
 }

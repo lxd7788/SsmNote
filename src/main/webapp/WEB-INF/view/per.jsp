@@ -15,7 +15,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="<%=path %>/css/layui.css"  media="all">
+  <link rel="stylesheet" href="<%=path %>/layui/css/layui.css"  media="all">
   <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>  
@@ -32,20 +32,14 @@
   <button class="layui-btn" data-type="isAll">验证是否全选</button>
 </div>
  
-<table class="layui-table" lay-data="{width: 892, height:332, url:'/demo/table/user/', page:true, id:'idTest'}" lay-filter="demo">
+<table class="layui-table" lay-data="{width: 892, height:332, url:'<%=path %>/data.do', page:true}" lay-filter="demo" , id:'idTest'>
   <thead>
     <tr>
       <th lay-data="{type:'checkbox', fixed: 'left'}"></th>
-      <th lay-data="{field:'id', width:80, sort: true, fixed: true}">ID</th>
-      <th lay-data="{field:'username', width:80}">用户名</th>
-      <th lay-data="{field:'sex', width:80, sort: true}">性别</th>
-      <th lay-data="{field:'city', width:80}">城市</th>
-      <th lay-data="{field:'sign', width:160}">签名</th>
-      <th lay-data="{field:'experience', width:80, sort: true}">积分</th>
-      
-      <th lay-data="{field:'classify', width:80}">职业</th>
-      <th lay-data="{field:'wealth', width:135, sort: true}">财富</th>
-      <th lay-data="{field:'score', width:80, sort: true, fixed: 'right'}">评分</th>
+      <th lay-data="{field:'name', width:80, sort: true, fixed: true}">ID</th>
+      <th lay-data="{field:'age', width:80}">用户名</th>
+      <th lay-data="{field:'img', width:80, sort: true}">性别</th>
+
       <th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}"></th>
     </tr>
   </thead>
@@ -58,7 +52,7 @@
 </script>
                
           
-<script src="<%=path %>/js/layui.js" charset="utf-8"></script>
+<script src="<%=path %>/layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
 layui.use('table', function(){
@@ -71,7 +65,7 @@ layui.use('table', function(){
   table.on('tool(demo)', function(obj){
     var data = obj.data;
     if(obj.event === 'detail'){
-      layer.msg('ID：'+ data.id + ' 的查看操作');
+      layer.msg('ID：'+ data.name + ' 的查看操作');
     } else if(obj.event === 'del'){
       layer.confirm('真的删除行么', function(index){
         obj.del();
