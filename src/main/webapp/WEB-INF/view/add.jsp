@@ -14,15 +14,12 @@ success<br>
 <span>获取modelmap</span>
 <span>${key }</span>
 <br>
-<img id="img" src="">
 </body>
 <script type="text/javascript">
 window.onload=function(){
-document.getElementById("img").src='img/h2.jpg'
 	
 var mm='<%=obj%>';
 alert(mm);
-
 }
 
 </script>
