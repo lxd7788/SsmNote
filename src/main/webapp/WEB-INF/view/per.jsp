@@ -47,6 +47,52 @@
   </thead>
 </table>
  
+ 
+<table class="layui-table" lay-size="lg">
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>昵称</th>
+      <th>加入时间</th>
+      <th>签名</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td><img alt="" src="img/h2.jpg"></td>
+      <td>2016-</td>
+      <td>人生就像是一场修行</td>
+    </tr>
+    <tr>
+      <td><img alt="" src="img/h2.jpg"></td>
+      <td>2016-</td>
+      <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+    </tr>
+    <tr>
+      <td><img alt="" src="img/h2.jpg"></td>
+      <td>2016-11</td>
+      <td> Life is either a daring adventure or nothing.</td>
+    </tr>
+        <tr>
+      <td><img alt="" src="img/h2.jpg"></td>
+      <td>2016-11</td>
+      <td> Life is either a daring adventure or nothing.</td>
+    </tr>
+        <tr>
+      <td><img alt="" src="img/h2.jpg"></td>
+      <td>2016-11</td>
+      <td> Life is either a daring adventure or nothing.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+ 
+ 
 <script type="text/html" id="barDemo">
   <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
   <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
@@ -90,11 +136,14 @@ layui.use('table', function(){
       layer.msg('选中了：'+ data.length + ' 个');
     }
     ,isAll: function(){ //验证是否全选
-    	layer.open({title: '提示',offset: '100px',skin: 'layui-layer-lan',content:'<input id="id" type="text">',btn: ['确定'],
+    		var t='xxxxxxx';
+    	layer.open({title: '提示',offset: '100px',skin: 'layui-layer-lan',content:t+'<input id="id" type="text">',btn: ['确定'],
             yes: function(index, layero){
             var v=	$(window.parent.document).find("#id").val();
-               alert(v)
-               console.log(layero)
+               
+               console.log(layero);
+				  		 layer.close(index);
+				  		 window.location.reload();
             }
         });
 
