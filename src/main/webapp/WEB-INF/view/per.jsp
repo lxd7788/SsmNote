@@ -90,8 +90,14 @@ layui.use('table', function(){
       layer.msg('选中了：'+ data.length + ' 个');
     }
     ,isAll: function(){ //验证是否全选
-      var checkStatus = table.checkStatus('idTest');
-      layer.msg(checkStatus.isAll ? '全选': '未全选')
+    	layer.open({title: '提示',offset: '100px',skin: 'layui-layer-lan',content:'<input id="id" type="text">',btn: ['确定'],
+            yes: function(index, layero){
+            var v=	$(window.parent.document).find("#id").val();
+               alert(v)
+               console.log(layero)
+            }
+        });
+
     }
   };
   
