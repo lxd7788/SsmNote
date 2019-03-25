@@ -41,7 +41,7 @@ alert(mm);
 
 }
 function put(){
-	alert(111)
+	alert('<%=path %>')
 	var formData = new FormData();
    formData.append("file", document.getElementById("file").files[0]);  
 	$.ajax({
