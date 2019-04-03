@@ -47,7 +47,7 @@
   </thead>
 </table>
  
- 
+ <!--  -
 <table class="layui-table" lay-size="lg">
   <colgroup>
     <col width="150">
@@ -56,9 +56,10 @@
   </colgroup>
   <thead>
     <tr>
-      <th>昵称</th>
-      <th>加入时间</th>
-      <th>签名</th>
+      <th>图片</th>
+      <th>票价</th>
+      <th>详情</th>
+      <th>操作</th>
     </tr> 
   </thead>
   <tbody>
@@ -66,33 +67,40 @@
       <td><img alt="" src="img/h2.jpg"></td>
       <td>2016-</td>
       <td>人生就像是一场修行</td>
+      		<td>够买</td>
     </tr>
     <tr>
       <td><img alt="" src="img/h2.jpg"></td>
       <td>2016-</td>
       <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+      <td>够买</td>
     </tr>
     <tr>
       <td><img alt="" src="img/h2.jpg"></td>
       <td>2016-11</td>
       <td> Life is either a daring adventure or nothing.</td>
+      <td>够买</td>
     </tr>
         <tr>
       <td><img alt="" src="img/h2.jpg"></td>
       <td>2016-11</td>
       <td> Life is either a daring adventure or nothing.</td>
+      <td>够买</td>
     </tr>
         <tr>
       <td><img alt="" src="img/h2.jpg"></td>
       <td>2016-11</td>
       <td> Life is either a daring adventure or nothing.</td>
+      <td>够买</td>
     </tr>
   </tbody>
 </table>
-
-
+-->
+<div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
+  <input type="text" class="layui-input" id="test1">
+</div>
  
- 
+
 <script type="text/html" id="barDemo">
   <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
   <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
@@ -103,8 +111,26 @@
 <script src="<%=path %>/layui/layui.js" charset="utf-8"></script>
 <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 <script>
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+  
+  //执行一个laydate实例
+  laydate.render({
+    elem: '#test1' //指定元素
+    	  ,done: function(value, date, endDate){
+    		    alert(value); //得到日期生成的值，如：2017-08-18
+    		    console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+    		    console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
+    		  }
+  });
+
+  
+});
+</script>
+<script>
 layui.use('table', function(){
-  var table = layui.table;
+
+	 var table = layui.table;
   //监听表格复选框选择
   table.on('checkbox(demo)', function(obj){
     console.log(obj)
